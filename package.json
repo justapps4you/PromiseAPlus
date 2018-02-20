@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "promises-aplus-tests Adapter",
+    "test": "promises-aplus-tests Adapter"
   },
   "author": "Juan",
   "license": "ISC",
