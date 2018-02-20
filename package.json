@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "test": "promises-aplus-tests Adapter",
-    "custom-test": "node tests"
   },
   "author": "Juan",
   "license": "ISC",
