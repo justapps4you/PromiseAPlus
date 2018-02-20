@@ -1,3 +1,4 @@
+// https://promisesaplus.com/#notes
 const STATE = {PENDING: 0, FULFILLED: 1, REJECTED: 2};
 function Promise(executor) {
     this.currentSate = STATE.PENDING;
