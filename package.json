@@ -4,8 +4,9 @@
   "description": "Promise A Plus implementation",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "promises-aplus-tests Adapter",
-    "start": "node index.js"
+    "custom-test": "node tests"
   },
   "author": "Juan",
   "license": "ISC",

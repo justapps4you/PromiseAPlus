@@ -1,11 +1,11 @@
 const STATE = {PENDING: 0, FULFILLED: 1, REJECTED: 2};
-function Promise(runner) {
+function Promise(executor) {
     this.currentSate = STATE.PENDING;
     this.fulfillCallbacks = [];
     this.rejectCallbacks = [];
     try {
         var promise = this;
-        runner(
+        executor(
             function(value) { resolveOrReject(promise, value, STATE.FULFILLED) },
             function(reason) { resolveOrReject(promise, reason, STATE.REJECTED) }
         );
@@ -84,5 +84,18 @@ function CallBack(promise, callback, state) {
             }
         })(x);
     }
+}
+Promise.reject = function (reason) {
+    if (typeof this !== 'function') throw TypeError('Constructor incompatible');
+    if (this.class !== Promise.class) throw TypeError('Not a Promise');
+    let promise = new Promise(function () {});
+    resolveOrReject(promise, reason, STATE.REJECTED);
+    return promise;
+}
+Promise.resolve = function (data) {
+    if (typeof this !== 'function') throw TypeError('Constructor incompatible')
+    if (this.class !== Promise.class) throw TypeError('Not a Promise');
+    if (data instanceof Promise) return data;
+    return new Promise(function(resolve) { resolve(data)});
 }
 module.exports = Promise;
